@@ -22,13 +22,6 @@ const AboutSection = () => {
     },
   ];
 
-  const achievements = [
-    "Senior Software Engineer at SAP Labs India",
-    "10+ peer-reviewed research publications",
-    "Led development of AI-powered enterprise solutions",
-    "Speaker at international technology conferences",
-    "Mentor for emerging technology professionals",
-  ];
 
   const values = [
     { icon: Award, label: "Excellence" },
@@ -126,24 +119,6 @@ const AboutSection = () => {
                 ))}
               </div>
 
-              {/* Career Achievements */}
-              <Card className="shadow-medium border-0 bg-card/50 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <h4 className="text-xl font-bold text-foreground mb-6">
-                    Career Highlights
-                  </h4>
-                  <div className="space-y-4">
-                    {achievements.map((achievement, index) => (
-                      <div key={index} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0" />
-                        <p className="text-muted-foreground leading-relaxed">
-                          {achievement}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
 
               {/* Current Focus */}
               <Card className="shadow-medium border-0 bg-gradient-primary text-primary-foreground">
