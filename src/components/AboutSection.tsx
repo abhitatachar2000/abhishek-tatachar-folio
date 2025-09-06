@@ -9,19 +9,19 @@ const AboutSection = () => {
       icon: Code2,
       title: "Full-Stack Excellence",
       description:
-        "Expertise in modern web technologies, cloud platforms, and scalable architecture design.",
+        "Expertise in modern Web Technologies, Server-Side Applications, Scalable Architecture Design, Automated Testing, DevOps and CI/CD and Cloud-Native Solutions",
     },
     {
       icon: Brain,
       title: "AI & Research",
       description:
-        "Published researcher in machine learning with focus on practical AI implementations.",
+        "Experience working with Image Processing, Natural Language Processing, and Generative AI applications. Authored 7+ research papers in Artificial Intelligence and Information & Communication Technology.",
     },
     {
       icon: Rocket,
       title: "Innovation Driver",
       description:
-        "Leading digital transformation initiatives at SAP Labs with cutting-edge solutions.",
+        "Driving innovation by uncovering requirements, shaping them into experiments, validating feasibility, and delivering transformative solutions.",
     },
     {
       icon: Shield,
@@ -32,7 +32,7 @@ const AboutSection = () => {
   ];
 
   const values = [
-    { icon: Award, label: "Excellence" },
+    { icon: Award, label: "Tech Excellence" },
     { icon: Users, label: "Collaboration" },
     { icon: BookOpen, label: "Continuous Learning" },
     { icon: Rocket, label: "Innovation" },
@@ -48,9 +48,7 @@ const AboutSection = () => {
               About Me
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Passionate about bridging the gap between theoretical research and
-              practical implementation, I bring both academic rigor and industry
-              experience to every project.
+              With a strong foundation in both research and industry, I transform ideas into impactful, real-world applications.
             </p>
           </div>
 
@@ -65,10 +63,16 @@ const AboutSection = () => {
 
                   <div className="prose prose-lg text-muted-foreground space-y-6 flex-1">
                     <p>
-                      As a Senior Software Engineer at SAP Labs India, I specialize in developing
-                      intelligent systems that solve complex business challenges. My work spans
-                      the full spectrum from research and prototyping to production deployment
-                      of AI-powered solutions.
+                      As a Software Developer at SAP Labs India, I specialize in developing scalable, 
+                      maintainable, and reliable cloud-native solutions that solve complex business challenges. 
+                      My expertise spans across 
+                      <span className="font-bold"> fullstack development</span>, 
+                      <span className="font-bold"> microservice architecture and containerization</span>,
+                      <span className="font-bold"> inter-service communication</span>,
+                      <span className="font-bold"> CI/CD and DevOps</span>,
+                      <span className="font-bold"> observability and monitoring</span>, 
+                      <span className="font-bold"> AI solutions</span> and 
+                      <span className="font-bold"> Cloud Platforms</span>.
                     </p>
 
                     <p>
