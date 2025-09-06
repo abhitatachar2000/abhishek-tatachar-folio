@@ -103,9 +103,7 @@ const ExperienceSection = () => {
               {experiences.map((exp, index) => (
                 <div
                   key={exp.id}
-                  className={`relative flex items-center ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  } animate-slide-up`}
+                  className="relative animate-slide-up"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   {/* Timeline Dot */}
@@ -113,7 +111,9 @@ const ExperienceSection = () => {
 
                   {/* Content Card */}
                   <div className={`w-full md:w-5/12 ml-16 md:ml-0 ${
-                    index % 2 === 0 ? "" : "md:mr-auto"
+                    index % 2 === 0 
+                      ? "md:ml-0 md:mr-auto md:pr-8" 
+                      : "md:ml-auto md:mr-0 md:pl-8"
                   }`}>
                     <Card className="shadow-medium hover:shadow-large transition-all duration-300 border-0 bg-card/50 backdrop-blur-sm group">
                       <CardHeader className="pb-4">
