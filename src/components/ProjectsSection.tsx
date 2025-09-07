@@ -7,122 +7,193 @@ import { ExternalLink, Github, Eye, Filter } from "lucide-react";
 const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const filters = ["All", "AI/ML", "Web Development", "Mobile", "DevOps", "Research"];
+  const filters = ["All", "AI/ML", "Web Technologies", "Mobile", "DevOps", "Research"];
 
-  const projects = [
+  type Project = {
+    id: number;
+    title: string;
+    category: string[]; // Now an array of categories
+    description: string;
+    image: string;
+    technologies: string[];
+    features: string[];
+    status: string;
+    demoUrl?: string;
+    githubUrl: string;
+    type: string;
+  };
+
+  const projects: Project[] = [
     {
       id: 1,
-      title: "Enterprise AI Analytics Platform",
-      category: "AI/ML",
-      description: "A comprehensive AI-powered analytics platform that provides real-time insights for enterprise customers. Features include predictive modeling, anomaly detection, and automated reporting.",
-      image: "🤖", // Placeholder - would be actual image in production
-      technologies: ["React", "Python", "TensorFlow", "AWS", "PostgreSQL", "Docker"],
-      features: [
-        "Real-time data processing",
-        "Machine learning predictions",
-        "Interactive dashboards",
-        "Automated alerting system"
+      title: "Order Management System",
+      category: ["Web Technologies"],
+      description:
+        "A microservices-based order management system built with Java Spring Boot. The application manages orders, product catalogs, and inventory, showcasing containerized deployments, inter-service communication, and CI/CD pipelines.",
+      image: "📦",
+      technologies: [
+        "Java",
+        "Spring Boot",
+        "Docker",
+        "Kubernetes",
+        "Kyma Runtime",
+        "GitHub Actions"
       ],
-      status: "Production",
-      demoUrl: "#",
-      githubUrl: "#",
-      type: "Enterprise"
+      features: [
+        "Microservices architecture for order, catalog, and inventory",
+        "Containerized deployment with Docker & Kubernetes",
+        "WebClient for inter-service communication",
+        "Correlation ID for request tracking",
+        "Test-Driven Development approach",
+        "CI/CD with GitHub Actions (unit, API tests, build, deploy)"
+      ],
+      status: "Open Source",
+      githubUrl: "https://github.com/abhitatachar2000/order-management-system",
+      type: "Backend System"
     },
     {
       id: 2,
-      title: "Smart DevOps Pipeline Orchestrator",
-      category: "DevOps",
-      description: "An intelligent CI/CD pipeline orchestration system that automatically optimizes deployment strategies based on project characteristics and historical performance data.",
-      image: "⚙️",
-      technologies: ["Node.js", "Kubernetes", "Jenkins", "Terraform", "Prometheus", "Grafana"],
-      features: [
-        "Automated pipeline optimization",
-        "Multi-cloud deployment",
-        "Performance monitoring",
-        "Rollback automation"
+      title: "Portfolio Web App",
+      category: ["Web Technologies"],
+      description:
+        "A full-stack portfolio web application that models client-server interaction. It allows structured storage of user data like education, skills, and experience with a secure backend and dynamic frontend rendering.",
+      image: "🌐",
+      technologies: [
+        "React.js",
+        "Node.js",
+        "MongoDB",
+        "Nginx",
+        "Docker",
+        "Kubernetes",
+        "HashiCorp Vault"
       ],
-      status: "Beta",
-      demoUrl: "#",
-      githubUrl: "#",
-      type: "Infrastructure"
-    },
-    {
-      id: 3,
-      title: "Collaborative Research Network",
-      category: "Research",
-      description: "A platform connecting researchers worldwide for collaborative projects. Features include paper sharing, peer review systems, and research matching algorithms.",
-      image: "📚",
-      technologies: ["Vue.js", "Django", "PostgreSQL", "Redis", "Elasticsearch", "AWS"],
       features: [
-        "Researcher matching",
-        "Collaborative editing",
-        "Peer review system",
-        "Citation tracking"
-      ],
-      status: "Production",
-      demoUrl: "#",
-      githubUrl: "#",
-      type: "Academic"
-    },
-    {
-      id: 4,
-      title: "Mobile Health Monitoring App",
-      category: "Mobile",
-      description: "A comprehensive health monitoring application with AI-powered insights, real-time vitals tracking, and personalized health recommendations.",
-      image: "📱",
-      technologies: ["React Native", "Python", "Firebase", "TensorFlow Lite", "HealthKit"],
-      features: [
-        "Real-time vitals monitoring",
-        "AI health insights",
-        "Personalized recommendations",
-        "Doctor consultation booking"
-      ],
-      status: "Production",
-      demoUrl: "#",
-      githubUrl: "#",
-      type: "Mobile App"
-    },
-    {
-      id: 5,
-      title: "Distributed Microservices Framework",
-      category: "Web Development",
-      description: "A lightweight framework for building and managing distributed microservices with built-in service discovery, load balancing, and monitoring.",
-      image: "🏗️",
-      technologies: ["Go", "Docker", "Kubernetes", "Consul", "Prometheus", "Jaeger"],
-      features: [
-        "Service discovery",
-        "Load balancing",
-        "Distributed tracing",
-        "Auto-scaling"
+        "Frontend built with React.js",
+        "Backend API with Node.js & MongoDB",
+        "Nginx reverse proxy routing",
+        "Basic authentication for secure POST requests",
+        "Secrets managed with HashiCorp Vault",
+        "Containerized deployment with Docker & Kubernetes"
       ],
       status: "Open Source",
       demoUrl: "#",
-      githubUrl: "#",
-      type: "Framework"
+      githubUrl: "https://github.com/abhitatachar2000/Portfolio-Web-App",
+      type: "Full Stack App"
+    },
+    {
+      id: 3,
+      title: "autoScrum",
+      category: ["AI/ML", "Mobile"],
+      description:
+        "A cross-platform tool that automates scrum workflows. It processes meeting transcripts to create, update, and manage issues while ensuring adherence to organizational standards.",
+      image: "🤝",
+      technologies: ["React Native", "Node.js", "AI/NLP APIs", "Firebase"],
+      features: [
+        "Cross-platform support (iOS, Android, Web)",
+        "Automates issue creation, updates, and deletion",
+        "Parses meeting transcripts to identify tasks",
+        "Defines done-criteria per organizational standards",
+        "Streamlines tracking and reduces duplicate issues"
+      ],
+      status: "Beta",
+      demoUrl: "#",
+      githubUrl: "https://github.com/CPAD2023/CPAD2023SecBTeam10",
+      type: "Productivity Tool"
+    },
+    {
+      id: 4,
+      title: "Dockerize ChromaDB",
+      category: ["AI/ML", "DevOps"],
+      description:
+        "An example project demonstrating how to run ChromaDB, an AI-native open-source embedding database, locally and within Docker containers for managing high-dimensional text embeddings.",
+      image: "🗄️",
+      technologies: ["Python", "ChromaDB", "Docker"],
+      features: [
+        "Hands-on exploration of vector databases",
+        "Local implementation of ChromaDB",
+        "Dockerized setup for containerized deployments",
+        "Efficient storage & retrieval of text embeddings",
+        "Walkthrough of multiple deployment approaches"
+      ],
+      status: "Open Source",
+      demoUrl: "#",
+      githubUrl: "https://github.com/abhitatachar2000/dockerize-chromadb",
+      type: "Database/Infrastructure"
+    },
+    {
+      id: 5,
+      title: "Kubernetes Starter",
+      category: ["DevOps"],
+      description:
+        "A simple Node.js-based calculator application demonstrating Kubernetes orchestration, load balancing, and scaling of containerized services.",
+      image: "🧮",
+      technologies: ["Node.js", "Docker", "Kubernetes", "Minikube"],
+      features: [
+        "Node.js calculator app",
+        "Deployed with Kubernetes on Minikube",
+        "Kubernetes deployments & services",
+        "Load balancing across replicas",
+        "Hands-on orchestration demo"
+      ],
+      status: "Open Source",
+      demoUrl: "#",
+      githubUrl: "https://github.com/abhitatachar2000/Kubernetes-Starter",
+      type: "DevOps Demo"
     },
     {
       id: 6,
-      title: "Natural Language Processing Suite",
-      category: "AI/ML",
-      description: "A comprehensive NLP toolkit with pre-trained models for sentiment analysis, entity recognition, and text summarization, designed for enterprise integration.",
-      image: "🔤",
-      technologies: ["Python", "PyTorch", "FastAPI", "BERT", "spaCy", "Docker"],
+      title: "Python101",
+      category: ["Education"],
+      description:
+        "A collection of beginner-friendly Python examples covering core programming concepts. Organized into sections for easy learning and exploration.",
+      image: "🐍",
+      technologies: ["Python"],
       features: [
-        "Multiple NLP models",
-        "REST API interface",
-        "Real-time processing",
-        "Custom model training"
+        "Covers numbers, strings, lists, dictionaries, and functions",
+        "Beginner-friendly examples",
+        "Organized into topic-based sections",
+        "Encourages experimentation & hands-on learning",
+        "Can serve as starter templates for small projects"
       ],
-      status: "Production",
+      status: "Open Source",
       demoUrl: "#",
-      githubUrl: "#",
-      type: "API"
+      githubUrl: "https://github.com/abhitatachar2000/Python101",
+      type: "Learning Resource"
+    },
+    {
+      id: 7,
+      title: "Project Daksha",
+      category: ["AI/ML", "Research"],
+      description:
+        "An innovative face recognition-based attendance system that automates classroom attendance, prevents false entries, and simplifies record management for teachers.",
+      image: "🧑‍🏫",
+      technologies: [
+        "Python",
+        "OpenCV",
+        "Firebase",
+        "Android Studio",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      features: [
+        "Face recognition-based attendance tracking",
+        "Prevents false or proxy attendance",
+        "Captures entry/exit times to validate attendance",
+        "Database integration for record management",
+        "Cross-platform accessibility (Web & Mobile)"
+      ],
+      status: "Prototype",
+      demoUrl: "http://dakshaattendance.epizy.com/?i=1",
+      githubUrl: "https://github.com/abhitatachar2000/ProjectDaksha",
+      type: "AI/Computer Vision"
     }
   ];
 
-  const filteredProjects = activeFilter === "All" 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+
+  const filteredProjects = activeFilter === "All"
+    ? projects
+    : projects.filter(project => project.category.includes(activeFilter));
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -138,7 +209,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-24 bg-background">
+    <section id="projects" className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
@@ -187,9 +258,6 @@ const ProjectsSection = () => {
                           <Badge variant="outline" className="text-xs">
                             {project.type}
                           </Badge>
-                          <Badge className={getStatusColor(project.status)}>
-                            {project.status}
-                          </Badge>
                         </div>
                       </div>
                     </div>
@@ -229,15 +297,6 @@ const ProjectsSection = () => {
                   {/* Action Buttons */}
                   <div className="flex space-x-3">
                     <Button
-                      variant="default"
-                      size="sm"
-                      className="flex-1 group/btn"
-                      onClick={() => window.open(project.demoUrl, "_blank")}
-                    >
-                      <Eye className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
-                      Live Demo
-                    </Button>
-                    <Button
                       variant="outline"
                       size="sm"
                       className="flex-1 group/btn"
@@ -246,47 +305,10 @@ const ProjectsSection = () => {
                       <Github className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                       Code
                     </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="px-3"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
-          </div>
-
-          {/* Call to Action */}
-          <div className="mt-16 text-center animate-fade-in">
-            <Card className="shadow-large border-0 bg-gradient-primary text-primary-foreground max-w-3xl mx-auto">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-4">Interested in Collaboration?</h3>
-                <p className="text-lg opacity-90 mb-6">
-                  I'm always excited to work on innovative projects that push the boundaries
-                  of technology and create meaningful impact.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-                  >
-                    View All Projects
-                    <ExternalLink className="ml-2 w-4 h-4" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
-                  >
-                    Discuss a Project
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
