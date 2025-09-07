@@ -1,122 +1,153 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Code2, 
-  Database, 
-  Cloud, 
-  Brain, 
-  Smartphone, 
-  Settings, 
-  GitBranch, 
+import {
+  Code2,
+  Database,
+  Cloud,
+  Brain,
+  Smartphone,
+  Settings,
+  GitBranch,
   Shield,
   Cpu,
   Globe,
-  Users
+  Users,
+  ChartBar,
+  Layers,
+  ClipboardList
 } from "lucide-react";
 
 const SkillsSection = () => {
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: "Programming and Scripting Languages",
       icon: Code2,
-      color: "text-blue-600",
+      color: "text-navy-blue-700",
       bgColor: "bg-blue-50 dark:bg-blue-950/30",
       skills: [
-        "React", "Vue.js", "Angular", "TypeScript", "JavaScript",
-        "Next.js", "Tailwind CSS", "SASS", "HTML5", "CSS3",
-        "Responsive Design", "Progressive Web Apps", "Webpack", "Vite"
+        "Python", "JavaScript", "TypeScript", "Java", "Bash", "C++"
       ]
     },
     {
-      title: "Backend Development",
-      icon: Database,
-      color: "text-green-600",
-      bgColor: "bg-green-50 dark:bg-green-950/30",
-      skills: [
-        "Node.js", "Python", "Java", "C++", "Express.js", "Django",
-        "FastAPI", "Spring Boot", "RESTful APIs", "GraphQL",
-        "Microservices", "Serverless", "WebSockets", "gRPC"
-      ]
-    },
-    {
-      title: "Cloud & DevOps",
-      icon: Cloud,
-      color: "text-purple-600",
-      bgColor: "bg-purple-50 dark:bg-purple-950/30",
-      skills: [
-        "AWS", "Azure", "Google Cloud", "Docker", "Kubernetes",
-        "Jenkins", "GitLab CI", "Terraform", "Ansible", "Nginx",
-        "CI/CD", "Infrastructure as Code", "Monitoring", "Logging"
-      ]
-    },
-    {
-      title: "Data & AI",
-      icon: Brain,
-      color: "text-orange-600",
-      bgColor: "bg-orange-50 dark:bg-orange-950/30",
-      skills: [
-        "Machine Learning", "Deep Learning", "TensorFlow", "PyTorch",
-        "Scikit-learn", "Pandas", "NumPy", "NLP", "Computer Vision",
-        "MLOps", "Data Analysis", "Statistical Modeling", "Jupyter", "R"
-      ]
-    },
-    {
-      title: "Databases",
-      icon: Cpu,
-      color: "text-red-600",
-      bgColor: "bg-red-50 dark:bg-red-950/30",
-      skills: [
-        "PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch",
-        "DynamoDB", "Cassandra", "Neo4j", "InfluxDB", "SQL",
-        "Database Design", "Query Optimization", "Data Modeling", "ETL"
-      ]
-    },
-    {
-      title: "Mobile Development",
+      title: "Web Development",
       icon: Smartphone,
-      color: "text-indigo-600",
-      bgColor: "bg-indigo-50 dark:bg-indigo-950/30",
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
       skills: [
-        "React Native", "Flutter", "Android", "iOS", "Kotlin",
-        "Swift", "Ionic", "Progressive Web Apps", "Mobile UI/UX",
-        "App Store Optimization", "Push Notifications", "Offline Storage"
+        "HTML", "CSS", "JavaScript", "TypeScript", "SAP UI5", "Fiori Elements",
+        "React.js", "Next.js", "Node.js", "Express.js", "Tailwind CSS", "Responsive Design", "Progressive Web Apps"
       ]
     },
     {
-      title: "Tools & Platforms",
-      icon: Settings,
-      color: "text-teal-600",
-      bgColor: "bg-teal-50 dark:bg-teal-950/30",
+      title: "Database Management",
+      icon: Database,
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
       skills: [
-        "Git", "GitHub", "GitLab", "Jira", "Confluence", "Slack",
-        "Figma", "Adobe XD", "Postman", "Insomnia", "VS Code",
-        "IntelliJ", "Chrome DevTools", "Swagger", "API Documentation"
+        "PostgreSQL", "MySQL", "Firebase", "Chroma Vector Database", "MongoDB",
+        "Redis", "Elasticsearch"
+      ]
+    },
+    {
+      title: "API Design, Development and Documentation",
+      icon: Cpu,
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
+      skills: [
+        "REST APIs", "FastAPI", "Node.js", "Swagger", "GraphQL", "OAuth",
+        "API Gateway", "Postman", "Insomnia", "gRPC"
+      ]
+    },
+    {
+      title: "DevOps & Version Control",
+      icon: Settings,
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
+      skills: [
+        "Git", "GitHub", "Docker", "Kubernetes", "Jenkins", "Azure Pipelines",
+        "Ansible", "Helm Charts", "Terraform", "Monitoring & Logging", "CI/CD"
+      ]
+    },
+    {
+      title: "Cloud Engineering",
+      icon: Cloud,
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
+      skills: [
+        "Amazon Web Services (AWS)", "SAP BTP", "Cloud Foundry",
+        "Serverless Architecture", "Cloud Security"
+      ]
+    },
+    {
+      title: "AI & Machine Learning",
+      icon: Brain,
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
+      skills: [
+        "Scikit-Learn", "TensorFlow", "Keras", "PyTorch",
+        "Natural Language Processing (NLP)", "HuggingFace", "Langchain",
+        "OpenAI API", "Embedding Models", "Retrieval Augmented Generation",
+        "Feature Engineering", "MLOps", "Computer Vision"
+      ]
+    },
+    {
+      title: "Data Analysis & Visualization",
+      icon: ChartBar,
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
+      skills: [
+        "NumPy", "Pandas", "Seaborn", "Matplotlib", "Jupyter", "Statistical Modeling"
+      ]
+    },
+    {
+      title: "System Design & Architecture",
+      icon: Layers,
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
+      skills: [
+        "System Design Patterns", "Architecture & Flow Diagrams", "Microservices",
+        "Event-Driven Architecture", "Graph Databases", "Scaling Strategies"
       ]
     },
     {
       title: "Security & Testing",
       icon: Shield,
-      color: "text-pink-600",
-      bgColor: "bg-pink-50 dark:bg-pink-950/30",
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
       skills: [
         "Unit Testing", "Integration Testing", "E2E Testing", "Jest",
-        "Cypress", "Selenium", "Security Auditing", "OAuth", "JWT",
-        "Encryption", "Penetration Testing", "Code Review", "OWASP"
+        "Cypress", "Selenium", "Security Auditing", "JWT", "Encryption",
+        "Penetration Testing", "OWASP"
+      ]
+    },
+    {
+      title: "Project Management",
+      icon: ClipboardList,
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
+      skills: [
+        "Agile Methodologies", "Scrum", "SAFe", "Sprint Planning",
+        "JIRA", "Confluence", "Stakeholder Communication"
+      ]
+    },
+    {
+      title: "Leadership & Soft Skills",
+      icon: Users,
+      color: "text-navy-blue-700",
+      bgColor: "bg-blue-50 dark:bg-blue-950/30",
+      skills: [
+        "Ownership", "Effective Communication", "Structured Thinking",
+        "Storytelling", "Mentoring", "Cross-Team Collaboration",
+        "Conflict Resolution"
       ]
     }
   ];
 
-  const softSkills = [
-    "Team Leadership", "Project Management", "Agile/Scrum", "Technical Writing",
-    "Code Review", "Mentoring", "Public Speaking", "Cross-functional Collaboration",
-    "Problem Solving", "System Design", "Architecture Planning", "Strategic Thinking"
-  ];
-
   const certifications = [
-    { name: "AWS Solutions Architect", issuer: "Amazon", year: "2023" },
-    { name: "Google Cloud Professional", issuer: "Google", year: "2022" },
-    { name: "Certified Kubernetes Administrator", issuer: "CNCF", year: "2022" },
-    { name: "TensorFlow Developer Certificate", issuer: "Google", year: "2021" },
+    { name: "SAP Certified Cloud Native Developer in Java", issuer: "SAP", year: "Issued July 2025 - No Expiry" },
+    { name: "Software Design and Architecture Specialization", issuer: "University of Alberta", year: "Issued Jan 2025 - No Expiry" },
+    { name: "AWS Solutions Architect", issuer: "Amazon Web Services", year: "Issued May 2024 - Expires May 2027" },
+    { name: "AWS Certified Cloud Practioner", issuer: "Amazon Web Services", year: "Issued Nov 2023 • Expires Nov 2026" },
   ];
 
   return (
@@ -153,13 +184,12 @@ const SkillsSection = () => {
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <Badge
-                        key={skillIndex}
-                        variant="secondary"
-                        className="text-xs font-medium hover:bg-muted transition-colors cursor-default"
-                      >
-                        {skill}
-                      </Badge>
+                        <span
+                          key={skillIndex}
+                          className="px-2 py-1 rounded-md text-xs font-medium bg-gray-200 text-black"
+                        >
+                          {skill}
+                        </span>
                     ))}
                   </div>
                 </CardContent>
@@ -168,44 +198,13 @@ const SkillsSection = () => {
           </div>
 
           {/* Soft Skills & Certifications */}
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Soft Skills */}
-            <Card className="shadow-medium border-0 bg-card/50 backdrop-blur-sm animate-slide-up">
-              <CardHeader>
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center">
-                    <Users className="w-5 h-5 text-secondary" />
-                  </div>
-                  <CardTitle className="text-2xl font-bold text-foreground">
-                    Leadership & Soft Skills
-                  </CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-6">
-                  Beyond technical expertise, I bring strong leadership and communication
-                  skills that enable effective collaboration and project success.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {softSkills.map((skill, index) => (
-                    <Badge
-                      key={index}
-                      variant="outline"
-                      className="font-medium hover:bg-secondary/10 transition-colors cursor-default"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Certifications */}
-            <Card className="shadow-medium border-0 bg-card/50 backdrop-blur-sm animate-slide-up delay-200">
+          {/* Certifications */}
+          <div className="mb-16">
+            <Card className="shadow-medium border-0 bg-card/50 backdrop-blur-sm animate-slide-up delay-200 w-full">
               <CardHeader>
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-accent" />
+                    <Layers className="w-5 h-5 text-accent" />
                   </div>
                   <CardTitle className="text-2xl font-bold text-foreground">
                     Certifications
@@ -228,21 +227,6 @@ const SkillsSection = () => {
                     </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Skills Philosophy */}
-          <div className="mt-16 animate-fade-in">
-            <Card className="shadow-large border-0 bg-gradient-primary text-primary-foreground">
-              <CardContent className="p-8 text-center">
-                <Globe className="w-12 h-12 mx-auto mb-6 opacity-90" />
-                <h3 className="text-2xl font-bold mb-4">Continuous Evolution</h3>
-                <p className="text-lg opacity-90 max-w-3xl mx-auto leading-relaxed">
-                  Technology evolves rapidly, and so do I. My commitment to continuous learning
-                  ensures I stay at the forefront of emerging technologies and best practices,
-                  always ready to tackle tomorrow's challenges with today's cutting-edge solutions.
-                </p>
               </CardContent>
             </Card>
           </div>
