@@ -14,7 +14,7 @@ import {
   Send,
   CheckCircle,
   Clock,
-  Globe
+  Instagram
 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -52,8 +52,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "abhishek.tatachar@email.com",
-      href: "mailto:abhishek.tatachar@email.com",
+      value: "abhishektatachar@gmail.com",
+      href: "mailto:abhishektatachar@gmail.com",
       primary: true
     },
     {
@@ -76,26 +76,26 @@ const ContactSection = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/abhishekvtatachar",
+      href: "https://linkedin.com/in/abhishektatachar",
       color: "text-blue-600 hover:text-blue-700"
     },
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/abhishekvtatachar",
+      href: "https://github.com/abhitatachar2000",
       color: "text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
     },
     {
       icon: Twitter,
       label: "Twitter",
-      href: "https://twitter.com/abhishekvt",
+      href: "https://x.com/abhitatachar",
       color: "text-blue-400 hover:text-blue-500"
     },
     {
-      icon: Globe,
-      label: "Website",
-      href: "https://abhishekvtatachar.dev",
-      color: "text-green-600 hover:text-green-700"
+      icon: Instagram,
+      label: "Instagram",
+      href: "https://www.instagram.com/abhishektatachar/",
+      color: "text-pink-600 hover:text-green-700"
     }
   ];
 
@@ -255,35 +255,6 @@ const ContactSection = () => {
                 </CardContent>
               </Card>
 
-              {/* Quick Topics */}
-              <Card className="shadow-medium border-0 bg-card/50 backdrop-blur-sm">
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-foreground">
-                    Quick Topics
-                  </CardTitle>
-                  <p className="text-muted-foreground">
-                    Some areas I'm particularly interested in discussing:
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {quickTopics.map((topic, index) => (
-                      <Badge
-                        key={index}
-                        variant="secondary"
-                        className="cursor-pointer hover:bg-primary/20 transition-colors"
-                        onClick={() => setFormData(prev => ({ 
-                          ...prev, 
-                          subject: topic 
-                        }))}
-                      >
-                        {topic}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
               {/* Social Links */}
               <Card className="shadow-medium border-0 bg-card/50 backdrop-blur-sm">
                 <CardHeader>
@@ -304,31 +275,6 @@ const ContactSection = () => {
                         <span className="font-medium">{social.label}</span>
                       </Button>
                     ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Availability Status */}
-              <Card className="shadow-medium border-0 bg-gradient-primary text-primary-foreground">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <CheckCircle className="w-6 h-6" />
-                    <h3 className="text-lg font-bold">Currently Available</h3>
-                  </div>
-                  <p className="opacity-90 mb-4">
-                    I'm actively looking for new opportunities and exciting projects.
-                    Open to both full-time positions and consulting engagements.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="bg-primary-foreground/20 text-primary-foreground border-0">
-                      Remote Work
-                    </Badge>
-                    <Badge variant="secondary" className="bg-primary-foreground/20 text-primary-foreground border-0">
-                      Consulting
-                    </Badge>
-                    <Badge variant="secondary" className="bg-primary-foreground/20 text-primary-foreground border-0">
-                      Full-time
-                    </Badge>
                   </div>
                 </CardContent>
               </Card>
