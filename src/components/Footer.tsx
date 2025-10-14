@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ArrowUp, Heart, Code, Mail, Linkedin, Github, Twitter } from "lucide-react";
+import { ArrowUp, Heart, Code, Mail, Linkedin, Github, Twitter, Instagram } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -20,10 +20,10 @@ const Footer = () => {
       { name: "Contact", href: "#contact" }
     ],
     connect: [
-      { name: "LinkedIn", href: "https://linkedin.com/in/abhishekvtatachar", icon: Linkedin },
-      { name: "GitHub", href: "https://github.com/abhishekvtatachar", icon: Github },
-      { name: "Twitter", href: "https://twitter.com/abhishekvt", icon: Twitter },
-      { name: "Email", href: "mailto:abhishek.tatachar@email.com", icon: Mail }
+      { name: "LinkedIn", href: "https://linkedin.com/in/abhishektatachar", icon: Linkedin },
+      { name: "GitHub", href: "https://github.com/abhitatachar2000", icon: Github },
+      { name: "Twitter", href: "https://x.com/abhitatachar", icon: Twitter },
+      { name: "Instagram", href: "https://www.instagram.com/abhishektatachar/", icon: Instagram }
     ]
   };
 
@@ -38,24 +38,26 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-tech-dark text-muted-foreground relative overflow-hidden">
+    <footer className="bg-tech-light text-muted-foreground relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20" />
       </div>
 
       {/* Back to Top Button */}
       <div className="container mx-auto px-6 py-8">
         <div className="flex justify-center mb-8">
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={scrollToTop}
-            className="group bg-background/10 border-border/20 text-foreground hover:bg-background/20 transition-all duration-300"
+          <a
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToTop();
+        }}
+        className="group inline-flex items-center px-6 py-3 border border-border/20 rounded-md bg-background/10 text-foreground hover:font-bold transition-all duration-300 text-lg"
           >
-            <ArrowUp className="w-5 h-5 mr-2 group-hover:-translate-y-1 transition-transform" />
-            Back to Top
-          </Button>
+        <ArrowUp className="w-5 h-5 mr-2 group-hover:-translate-y-1 transition-transform" />
+        Back to Top
+          </a>
         </div>
 
         <div className="max-w-6xl mx-auto">
@@ -70,26 +72,9 @@ const Footer = () => {
                   Software Engineer & Researcher
                 </p>
                 <p className="text-muted-foreground leading-relaxed max-w-md">
-                  Crafting intelligent solutions at the intersection of artificial intelligence,
-                  software systems, and DevOps excellence. Always eager to tackle new challenges
-                  and drive innovation.
+                  Crafting scalable, maintainable and reliable solutions at the intersection of Fullstack Development, 
+                  Cloud Native Systems, Artificial Intelligence, and DevOps.
                 </p>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-6 mb-6">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">5+</div>
-                  <div className="text-xs text-muted-foreground">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-secondary mb-1">20+</div>
-                  <div className="text-xs text-muted-foreground">Projects</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-accent mb-1">10+</div>
-                  <div className="text-xs text-muted-foreground">Publications</div>
-                </div>
               </div>
             </div>
 
@@ -127,65 +112,17 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
-
-              {/* Newsletter Signup */}
-              <div className="mt-8">
-                <h5 className="text-sm font-semibold text-foreground mb-3">Stay Updated</h5>
-                <p className="text-xs text-muted-foreground mb-3">
-                  Get notified about new projects and research
-                </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full bg-background/10 border-border/20 text-foreground hover:bg-background/20"
-                >
-                  Subscribe to Newsletter
-                </Button>
-              </div>
             </div>
           </div>
 
           <Separator className="bg-border/20 mb-8" />
 
-          {/* Bottom Section */}
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-              <span>© 2024 Abhishek V Tatachar. Made with</span>
-              <Heart className="w-4 h-4 text-red-500 fill-current" />
-              <span>and</span>
-              <Code className="w-4 h-4 text-primary" />
-              <span>in India</span>
+            {/* Bottom Section */}
+            <div className="flex flex-col justify-center items-center text-center space-y-4">
+            <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
+              <span>© 2025 Abhishek V Tatachar. Design base by Lovable. Modified and customized by Abhishek.</span>
             </div>
-
-            <div className="flex items-center space-x-6 text-sm">
-              <a
-                href="/privacy"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="/terms"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="/sitemap"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Sitemap
-              </a>
             </div>
-          </div>
-
-          {/* Tech Credits */}
-          <div className="mt-8 pt-6 border-t border-border/10">
-            <p className="text-xs text-muted-foreground/70 text-center">
-              Built with React, TypeScript, Tailwind CSS, and deployed on modern cloud infrastructure.
-              Open source and available on GitHub.
-            </p>
-          </div>
         </div>
       </div>
     </footer>

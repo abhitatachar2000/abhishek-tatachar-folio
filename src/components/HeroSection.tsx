@@ -29,12 +29,12 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           {/* Profile Photo */}
             <div className="mt-16 mb-8 animate-scale-in">
-            <Avatar className="w-36 h-36 mx-auto border-4 border-primary/20 shadow-large">
-              <AvatarImage src="images/portfolio/1.png" alt="Abhishek V Tatachar" />
-              <AvatarFallback className="text-2xl font-semibold bg-primary/10 text-primary">
-              AV
+              <Avatar className="w-44 h-44 mx-auto border-4 border-primary/20 shadow-large">
+              <AvatarImage src="images/portfolio/6.png" alt="Abhishek V Tatachar" />
+              <AvatarFallback className="text-3xl font-semibold bg-primary/10 text-primary">
+                AV
               </AvatarFallback>
-            </Avatar>
+              </Avatar>
             </div>
 
           {/* Main Heading */}
@@ -50,7 +50,7 @@ const HeroSection = () => {
             <div className="hidden md:block w-1 h-1 bg-muted rounded-full" />
             <div className="flex items-center space-x-2 text-muted-foreground">
               <MapPin className="w-4 h-4" />
-              <span className="text-base">SAP Labs, India</span>
+              <span className="text-base">SAP Labs India</span>
             </div>
           </div>
 
