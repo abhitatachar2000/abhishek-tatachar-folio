@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,35 +18,27 @@ import {
   Instagram
 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { useForm } from "react-hook-form";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
+
+  useEffect(() => {
+    emailjs.init({'publicKey': 'yGYxj3D8zjom9y4Va'});
+  }, []);
+
+  const serviceID = 'service_ury5h8i';
+  const templateID = 'template_xzxqole';
+
+  const formRef = useRef();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Message sent successfully!",
-        description: "I'll get back to you within 24 hours.",
-      });
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 2000);
+    emailjs.sendForm(serviceID, templateID, formRef.current)
+      .then(() => {alert("Message Sent!")})
+      .catch((err) => {alert(`Message was not sent: ${err}`)})
   };
 
   const contactInfo = [
@@ -137,7 +130,7 @@ const ContactSection = () => {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -148,9 +141,6 @@ const ContactSection = () => {
                           name="name"
                           type="text"
                           required
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="Your full name"
                           className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
                         />
                       </div>
@@ -163,8 +153,6 @@ const ContactSection = () => {
                           name="email"
                           type="email"
                           required
-                          value={formData.email}
-                          onChange={handleInputChange}
                           placeholder="your.email@example.com"
                           className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
                         />
@@ -172,16 +160,14 @@ const ContactSection = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="title" className="block text-sm font-medium text-foreground mb-2">
                         Subject *
                       </label>
                       <Input
-                        id="subject"
-                        name="subject"
+                        id="title"
+                        name="title"
                         type="text"
                         required
-                        value={formData.subject}
-                        onChange={handleInputChange}
                         placeholder="What would you like to discuss?"
                         className="transition-all duration-300 focus:ring-2 focus:ring-primary/20"
                       />
@@ -195,9 +181,6 @@ const ContactSection = () => {
                         id="message"
                         name="message"
                         required
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell me more about your project or inquiry..."
                         rows={6}
                         className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 resize-none"
                       />
