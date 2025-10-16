@@ -51,9 +51,11 @@ const Navigation = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-primary">
-                A<span className="text-secondary">V</span>T
-              </h1>
+                <img
+                src="/logo.png"
+                alt="Logo"
+                className="h-12 w-auto"
+                />
             </div>
 
             {/* Desktop Navigation */}
